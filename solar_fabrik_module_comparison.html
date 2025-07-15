@@ -1,97 +1,171 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Solar Fabrik Performance Modules</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 40px;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-        th {
-            background-color: #2c3e50;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        caption {
-            caption-side: bottom;
-            padding: 10px;
-            font-style: italic;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solarfabrik Preisrechner</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap">
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: #f2f4f8;
+      color: #333;
+      padding: 0;
+      margin: 0;
+    }
+    .logo-bar {
+      background: #004f2d;
+      padding-top: 22px;
+      padding-bottom: 18px;
+      text-align: center;
+    }
+    .sf-logo {
+      height: 46px;
+      width: 46px;
+      border-radius: 13px;
+      object-fit: cover;
+      background: #fff;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 7px rgba(0,0,0,0.09);
+      margin-bottom: 2px;
+    }
+    .nav-bar {
+      background: #e8f5e9;
+      padding: 0.65rem 0;
+      text-align: center;
+      margin-bottom: 1.4rem;
+      border-bottom: 1px solid #d2ead5;
+    }
+    .nav-bar a {
+      color: #004f2d;
+      background: #d2ead5;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      padding: 0.37rem 1.05rem;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: background 0.17s;
+      display: inline-block;
+    }
+    .nav-bar a:hover {
+      background: #bfe6d2;
+      color: #002c1b;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem 1.2rem 1.7rem 1.2rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 26px rgba(0,0,0,0.09);
+      margin-top: 1.6rem;
+    }
+    h1 {
+      color: #006e3c;
+      text-align: center;
+      margin-bottom: 0.45em;
+      margin-top: 0;
+      font-size: 1.47rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    select, input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 1.5rem;
+      background-color: #006e3c;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.05rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: background 0.17s;
+    }
+    button:hover {
+      background-color: #004f2d;
+    }
+    .result {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #e6f3ec;
+      border-left: 5px solid #006e3c;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    }
+    @media (max-width: 640px) {
+      .container {
+        padding: 0.8rem 0.4rem 1.1rem 0.4rem;
+        margin-top: 1rem;
+      }
+      .sf-logo {height: 38px; width: 38px;}
+      .nav-bar a {font-size: 0.98rem;}
+    }
+  </style>
 </head>
 <body>
-    <h1>Solar Fabrik Performance Module Comparison</h1>
-    <table>
-        <tr>
-            <th>Parameter</th>
-            <th>SF Premium</th>
-            <th>SF Advanced</th>
-            <th>SF Eco</th>
-        </tr>
-        <tr>
-            <td>Peak Power (Wp)</td>
-            <td>410</td>
-            <td>380</td>
-            <td>340</td>
-        </tr>
-        <tr>
-            <td>Module Efficiency (%)</td>
-            <td>21.0</td>
-            <td>19.8</td>
-            <td>18.5</td>
-        </tr>
-        <tr>
-            <td>Price per Module (€)</td>
-            <td>160</td>
-            <td>145</td>
-            <td>120</td>
-        </tr>
-        <tr>
-            <td>Estimated Payback (years)</td>
-            <td>8.0</td>
-            <td>8.5</td>
-            <td>9.0</td>
-        </tr>
-        <tr>
-            <td>CO₂ Savings / Year (kg)</td>
-            <td>190</td>
-            <td>175</td>
-            <td>160</td>
-        </tr>
-        <tr>
-            <td>Product Warranty (years)</td>
-            <td>30</td>
-            <td>25</td>
-            <td>20</td>
-        </tr>
-        <tr>
-            <td>Performance Warranty</td>
-            <td>30 years (87%)</td>
-            <td>25 years (85%)</td>
-            <td>20 years (83%)</td>
-        </tr>
-    </table>
-    <caption>Compare and select the best-fit module based on performance, cost, and sustainability.</caption>
+  <div class="logo-bar">
+    <img src="1.jpg" alt="Solarfabrik Logo" class="sf-logo">
+  </div>
+  <div class="nav-bar">
+    <a href="index.html">Startseite</a>
+    <a href="solarfabrik-preisrechner-demo.html">Preisrechner</a>
+    <a href="solarfabrik_price_demo.html">Transportkostenrechner</a>
+    <a href="solar_fabrik_module_comparison.html">Modulvergleich</a>
+  </div>
+  <div class="container">
+    <h1>Solarfabrik Preisrechner</h1>
+    <p style="text-align:center;">Demo-Tool zur schnellen Kalkulation – in wenigen Sekunden.</p>
+    <label for="modultyp">Modultyp wählen:</label>
+    <select id="modultyp">
+      <option value="370">SF Premium 370W</option>
+      <option value="410">SF Black 410W</option>
+      <option value="450">SF Top 450W</option>
+    </select>
+    <label for="menge">Menge eingeben (in Stück):</label>
+    <input type="number" id="menge" min="1" value="10">
+    <label for="plz">Postleitzahl:</label>
+    <input type="text" id="plz" placeholder="z. B. 79111">
+    <button onclick="berechne()">Preis berechnen</button>
+    <div class="result" id="ergebnis" style="display: none;"></div>
+  </div>
+  <script>
+    function berechne() {
+      const modultyp = document.getElementById("modultyp").value;
+      const menge = parseInt(document.getElementById("menge").value);
+      const plz = document.getElementById("plz").value;
+
+      const gewichtProStk = 22; // kg
+      const transportKostenBasis = 95;
+      const preisProModul = parseInt(modultyp); // Preis nach Watt
+      const gesamtgewicht = gewichtProStk * menge;
+      const transportkosten = transportKostenBasis + (gesamtgewicht * 0.12);
+      const gesamtpreis = menge * (preisProModul * 0.75); // fiktiver €/Modul-Wert
+
+      const ausgabe = `
+        <strong>Ergebnis:</strong><br>
+        • Gesamtgewicht: ${gesamtgewicht} kg<br>
+        • Transportkosten (PLZ ${plz}): ca. ${transportkosten.toFixed(2)} €<br>
+        • Produktpreis (netto): ${gesamtpreis.toFixed(2)} €<br><br>
+        📦 <em>Unverbindliche Beispielkalkulation – individuell anpassbar.</em>
+      `;
+
+      const ergebnisBox = document.getElementById("ergebnis");
+      ergebnisBox.innerHTML = ausgabe;
+      ergebnisBox.style.display = "block";
+    }
+  </script>
 </body>
 </html>
