@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solarfabrik Preisrechner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #004f2d;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #004f2d;
+      color: white;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #e8f5e9;
+      border-left: 4px solid #004f2d;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔋 Solarfabrik Transportkostenrechner</h1>
+
+  <label for="product">Produkt:</label>
+  <select id="product">
+    <option value="S4 Trend Black">S4 Trend Black</option>
+    <option value="S5 Installer">S5 Installer Series</option>
+    <option value="S4 Eco Basic">S4 Eco Basic</option>
+  </select>
+
+  <label for="quantity">Menge (Stück):</label>
+  <input type="number" id="quantity" value="10">
+
+  <label for="weight">Gewicht pro Stück (kg):</label>
+  <input type="number" id="weight" value="20">
+
+  <label for="zipcode">PLZ Lieferadresse:</label>
+  <input type="text" id="zipcode" value="79110">
+
+  <button onclick="calculate()">Kosten berechnen</button>
+
+  <div class="output" id="result"></div>
+
+  <script>
+    function calculate() {
+      const quantity = parseInt(document.getElementById('quantity').value);
+      const weightPerUnit = parseFloat(document.getElementById('weight').value);
+      const zipcode = document.getElementById('zipcode').value;
+      const product = document.getElementById('product').value;
+
+      const totalWeight = quantity * weightPerUnit;
+      const distance = Math.abs(79110 - parseInt(zipcode)); // Pseudo-Distanzberechnung
+      const transportCost = (totalWeight * 0.15) + (distance * 0.1); // Beispielhafte Formel
+
+      const resultBox = document.getElementById('result');
+      resultBox.innerHTML = `
+        <strong>Produkt:</strong> ${product}<br>
+        <strong>Menge:</strong> ${quantity} Stück<br>
+        <strong>Gesamtgewicht:</strong> ${totalWeight} kg<br>
+        <strong>PLZ:</strong> ${zipcode}<br>
+        <strong>Geschätzte Transportkosten:</strong> <strong>${transportCost.toFixed(2)} €</strong><br>
+        <em>(Berechnung basiert auf interner Demo-Formel)</em>
+      `;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solarfabrik Preisrechner Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f8;
+            color: #333;
+            padding: 2rem;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #006e3c;
+        }
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        select, input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.3rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 1.5rem;
+            background-color: #006e3c;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #e6f3ec;
+            border-left: 5px solid #006e3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Solarfabrik Preisrechner</h1>
+    <p>Demo-Tool zur schnellen Kalkulation – in wenigen Sekunden.</p>
+
+    <label for="modultyp">Modultyp wählen:</label>
+    <select id="modultyp">
+        <option value="370">SF Premium 370W</option>
+        <option value="410">SF Black 410W</option>
+        <option value="450">SF Top 450W</option>
+    </select>
+
+    <label for="menge">Menge eingeben (in Stück):</label>
+    <input type="number" id="menge" min="1" value="10">
+
+    <label for="plz">Postleitzahl:</label>
+    <input type="text" id="plz" placeholder="z. B. 79111">
+
+    <button onclick="berechne()">Preis berechnen</button>
+
+    <div class="result" id="ergebnis" style="display: none;"></div>
+
+    <script>
+        function berechne() {
+            const modultyp = document.getElementById("modultyp").value;
+            const menge = parseInt(document.getElementById("menge").value);
+            const plz = document.getElementById("plz").value;
+
+            const gewichtProStk = 22; // kg
+            const transportKostenBasis = 95;
+            const preisProModul = parseInt(modultyp); // Preis nach Watt
+            const gesamtgewicht = gewichtProStk * menge;
+            const transportkosten = transportKostenBasis + (gesamtgewicht * 0.12);
+            const gesamtpreis = menge * (preisProModul * 0.75); // fiktiver €/Modul-Wert
+
+            const ausgabe = `
+                <strong>Ergebnis:</strong><br>
+                • Gesamtgewicht: ${gesamtgewicht} kg<br>
+                • Transportkosten (PLZ ${plz}): ca. ${transportkosten.toFixed(2)} €<br>
+                • Produktpreis (netto): ${gesamtpreis.toFixed(2)} €<br><br>
+                📦 <em>Unverbindliche Beispielkalkulation – individuell anpassbar.</em>
+            `;
+
+            const ergebnisBox = document.getElementById("ergebnis");
+            ergebnisBox.innerHTML = ausgabe;
+            ergebnisBox.style.display = "block";
+        }
+    </script>
+</body>
+</html>
