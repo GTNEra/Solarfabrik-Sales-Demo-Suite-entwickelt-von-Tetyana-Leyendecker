@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solarfabrik Preisrechner</title>
+  <title>Solarfabrik Modulvergleich</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap">
   <style>
     body {
@@ -53,7 +53,7 @@
       color: #002c1b;
     }
     .container {
-      max-width: 600px;
+      max-width: 800px;
       margin: auto;
       background: #fff;
       padding: 2rem 1.2rem 1.7rem 1.2rem;
@@ -68,50 +68,67 @@
       margin-top: 0;
       font-size: 1.47rem;
     }
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.07rem;
+      color: #285045;
     }
-    select, input {
+    table {
       width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.3rem;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
     }
-    button {
-      margin-top: 1.5rem;
-      background-color: #006e3c;
-      color: white;
-      padding: 0.7rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1.05rem;
-      font-weight: 600;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      transition: background 0.17s;
+    th, td {
+      border: 1px solid #e2e8f0;
+      padding: 0.72em 0.5em;
+      text-align: center;
+      font-size: 1.03rem;
     }
-    button:hover {
-      background-color: #004f2d;
+    th {
+      background: #e8f5e9;
+      color: #004f2d;
+      font-weight: 700;
     }
-    .result {
-      margin-top: 2rem;
-      padding: 1rem;
-      background-color: #e6f3ec;
-      border-left: 5px solid #006e3c;
-      border-radius: 8px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    tr:nth-child(even) td {
+      background: #f7fafc;
     }
-    @media (max-width: 640px) {
+    tr:hover td {
+      background: #d9f4e2;
+    }
+    .note {
+      font-size: 0.98rem;
+      color: #446f61;
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    @media (max-width: 700px) {
       .container {
-        padding: 0.8rem 0.4rem 1.1rem 0.4rem;
-        margin-top: 1rem;
+        padding: 0.8rem 0.2rem 1.1rem 0.2rem;
+      }
+      th, td {
+        font-size: 0.97rem;
+        padding: 0.56em 0.19em;
       }
       .sf-logo {height: 38px; width: 38px;}
       .nav-bar a {font-size: 0.98rem;}
+    }
+    @media (max-width: 480px) {
+      table, thead, tbody, th, td, tr { display: block; }
+      th { text-align: left; }
+      tr { margin-bottom: 1.2em; }
+      td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%; text-align: right; }
+      td:before {
+        position: absolute;
+        left: 0; top: 0; width: 48%; padding-left: 0.6em;
+        white-space: nowrap; text-align: left;
+        font-weight: 600; color: #004f2d;
+      }
+      td:nth-of-type(1):before { content: "Modul"; }
+      td:nth-of-type(2):before { content: "Leistung (W)"; }
+      td:nth-of-type(3):before { content: "Wirkungsgrad"; }
+      td:nth-of-type(4):before { content: "Garantie (Jahre)"; }
+      td:nth-of-type(5):before { content: "Nachhaltigkeit"; }
     }
   </style>
 </head>
@@ -126,46 +143,48 @@
     <a href="solar_fabrik_module_comparison.html">Modulvergleich</a>
   </div>
   <div class="container">
-    <h1>Solarfabrik Preisrechner</h1>
-    <p style="text-align:center;">Demo-Tool zur schnellen Kalkulation – in wenigen Sekunden.</p>
-    <label for="modultyp">Modultyp wählen:</label>
-    <select id="modultyp">
-      <option value="370">SF Premium 370W</option>
-      <option value="410">SF Black 410W</option>
-      <option value="450">SF Top 450W</option>
-    </select>
-    <label for="menge">Menge eingeben (in Stück):</label>
-    <input type="number" id="menge" min="1" value="10">
-    <label for="plz">Postleitzahl:</label>
-    <input type="text" id="plz" placeholder="z. B. 79111">
-    <button onclick="berechne()">Preis berechnen</button>
-    <div class="result" id="ergebnis" style="display: none;"></div>
+    <h1>Solarfabrik Modulvergleich</h1>
+    <div class="intro">
+      Vergleichen Sie verschiedene Module auf einen Blick – Effizienz, Garantie und Nachhaltigkeit für Ihre Entscheidung.
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Modul</th>
+          <th>Leistung (W)</th>
+          <th>Wirkungsgrad</th>
+          <th>Garantie (Jahre)</th>
+          <th>Nachhaltigkeit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SF Premium 370W</td>
+          <td>370</td>
+          <td>20,2%</td>
+          <td>15</td>
+          <td>Recyclingfähig, RoHS</td>
+        </tr>
+        <tr>
+          <td>SF Black 410W</td>
+          <td>410</td>
+          <td>21,1%</td>
+          <td>20</td>
+          <td>Low Carbon, EPD</td>
+        </tr>
+        <tr>
+          <td>SF Top 450W</td>
+          <td>450</td>
+          <td>21,8%</td>
+          <td>25</td>
+          <td>Low Carbon, EPD, Made in EU</td>
+        </tr>
+        <!-- Weitere Module können ergänzt werden -->
+      </tbody>
+    </table>
+    <div class="note">
+      <b>Tipp:</b> Die dargestellten Werte dienen als Beispiel – gerne passe ich die Vergleichstabelle nach Ihren Wunschmodellen oder individuellen Anforderungen an.
+    </div>
   </div>
-  <script>
-    function berechne() {
-      const modultyp = document.getElementById("modultyp").value;
-      const menge = parseInt(document.getElementById("menge").value);
-      const plz = document.getElementById("plz").value;
-
-      const gewichtProStk = 22; // kg
-      const transportKostenBasis = 95;
-      const preisProModul = parseInt(modultyp); // Preis nach Watt
-      const gesamtgewicht = gewichtProStk * menge;
-      const transportkosten = transportKostenBasis + (gesamtgewicht * 0.12);
-      const gesamtpreis = menge * (preisProModul * 0.75); // fiktiver €/Modul-Wert
-
-      const ausgabe = `
-        <strong>Ergebnis:</strong><br>
-        • Gesamtgewicht: ${gesamtgewicht} kg<br>
-        • Transportkosten (PLZ ${plz}): ca. ${transportkosten.toFixed(2)} €<br>
-        • Produktpreis (netto): ${gesamtpreis.toFixed(2)} €<br><br>
-        📦 <em>Unverbindliche Beispielkalkulation – individuell anpassbar.</em>
-      `;
-
-      const ergebnisBox = document.getElementById("ergebnis");
-      ergebnisBox.innerHTML = ausgabe;
-      ergebnisBox.style.display = "block";
-    }
-  </script>
 </body>
 </html>
