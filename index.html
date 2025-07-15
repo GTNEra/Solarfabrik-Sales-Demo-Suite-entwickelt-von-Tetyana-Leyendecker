@@ -16,25 +16,27 @@
     header {
       background: #004f2d;
       color: #fff;
-      padding: 1.1rem 0 0.5rem 0;
+      padding: 1rem 0 0.5rem 0;
       text-align: center;
       min-height: 80px;
+      position: relative;
     }
     .sf-logo {
-      height: 48px;
-      width: 48px;
-      border-radius: 16px;
+      height: 44px;
+      width: 44px;
+      border-radius: 10px;
       object-fit: cover;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
       margin-top: 2px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      background: none;
+      box-shadow: none;
       display: inline-block;
-      border: 2px solid #fff;
+      border: none;
+      vertical-align: middle;
     }
     h1 {
-      font-size: 1.3rem;
-      margin-bottom: 0.35em;
+      font-size: 1.28rem;
+      margin-bottom: 0.30em;
       letter-spacing: -1px;
       font-weight: 700;
       margin-top: 0.1em;
@@ -42,59 +44,102 @@
     .subtitle {
       color: #c8ffdf;
       font-size: 1rem;
-      margin-bottom: 0.3em;
+      margin-bottom: 0.28em;
       font-weight: 400;
     }
-    nav {
-      margin-top: 0.3rem;
+    /* Dropdown NAVIGATION */
+    .nav-container {
+      width: 100%;
+      margin-top: 0.4rem;
       text-align: center;
+      position: relative;
     }
-    nav a {
-      color: #004f2d;
+    .nav-menu {
+      display: inline-block;
       background: #e8f5e9;
-      text-decoration: none;
-      margin: 0 0.4rem;
-      padding: 0.27rem 0.85rem;
-      border-radius: 5px;
-      font-weight: 600;
-      font-size: 0.98rem;
-      transition: background 0.18s;
+      border-radius: 7px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      padding: 0.12rem 1.2rem;
+      position: relative;
+    }
+    .nav-menu button {
+      background: none;
       border: none;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-      line-height: 1.5;
+      font-size: 1rem;
+      color: #004f2d;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.6rem 1.4rem 0.6rem 0.8rem;
+      border-radius: 6px;
+      transition: background 0.15s;
+      position: relative;
     }
-    nav a:hover {
+    .nav-menu button:hover, .nav-menu button.active {
       background: #c0e2c9;
+      color: #002c1b;
     }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 180px;
+      background: #fff;
+      border-radius: 9px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.11);
+      margin-top: 5px;
+      z-index: 1001;
+      text-align: left;
+      padding: 0.7rem 0;
+    }
+    .dropdown-content a {
+      color: #004f2d;
+      display: block;
+      padding: 0.5rem 1.3rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.12s;
+    }
+    .dropdown-content a:hover {
+      background: #e8f5e9;
+      color: #006e3c;
+    }
+    .nav-menu button:focus + .dropdown-content,
+    .nav-menu .dropdown-content:hover,
+    .nav-menu .dropdown-content:focus-within {
+      display: block;
+    }
+    /* Container und Inhalt */
     .container {
       max-width: 970px;
       margin: auto;
       background: #fff;
-      padding: 1.2rem 1.2rem 2.5rem 1.2rem;
-      border-radius: 16px;
+      padding: 1.2rem 1.2rem 2.1rem 1.2rem;
+      border-radius: 14px;
       box-shadow: 0 6px 32px rgba(0,0,0,0.07);
-      margin-top: 1.3rem;
+      margin-top: 1.15rem;
       position: relative;
       top: 0;
     }
     .intro {
       margin-top: 1.1em;
-      margin-bottom: 1.6em;
-      font-size: 1.09rem;
+      margin-bottom: 1.4em;
+      font-size: 1.06rem;
       color: #2a4741;
-      line-height: 1.6;
+      line-height: 1.55;
     }
     .demo-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.4rem;
+      gap: 1.3rem;
       margin-bottom: 2.1rem;
-      margin-top: 1.1rem;
+      margin-top: 1.05rem;
     }
     .demo-box {
       background: #e8f5e9;
-      padding: 1.05rem;
-      border-radius: 10px;
+      padding: 1.07rem 0.8rem;
+      border-radius: 7px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.04);
       text-align: center;
       transition: transform 0.15s;
@@ -104,7 +149,7 @@
       background: #d2ead5;
     }
     .demo-box h3 {
-      margin-bottom: 0.25em;
+      margin-bottom: 0.22em;
       color: #004f2d;
       font-size: 1.1rem;
     }
@@ -115,35 +160,35 @@
     .demo-box a {
       background: #004f2d;
       color: #fff;
-      padding: 0.32em 0.8em;
+      padding: 0.30em 0.9em;
       border-radius: 5px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.98rem;
+      font-size: 0.97rem;
     }
     .potentials {
-      margin-top: 1.2rem;
-      margin-bottom: 1.3rem;
+      margin-top: 1.1rem;
+      margin-bottom: 1.1rem;
     }
     .potentials h2 {
       color: #006e3c;
-      margin-bottom: 0.5em;
-      font-size: 1.18rem;
+      margin-bottom: 0.48em;
+      font-size: 1.16rem;
     }
     .potentials ul {
       list-style: disc inside;
       padding-left: 1em;
-      font-size: 1rem;
+      font-size: 0.99rem;
       margin-top: 0.4em;
-      margin-bottom: 0.3em;
+      margin-bottom: 0.2em;
     }
     .faq {
       background: #e6f3ec;
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 1.05rem;
       margin-bottom: 2rem;
     }
-    .faq h3 { color: #006e3c; font-size: 1.09rem;}
+    .faq h3 { color: #006e3c; font-size: 1.07rem;}
     .faq dt { font-weight: bold; margin-top: 1em; }
     .faq dd { margin-bottom: 0.6em; margin-left: 0; }
     .contact {
@@ -156,13 +201,13 @@
     @media (max-width: 850px) {
       .demo-grid { grid-template-columns: 1fr; gap: 1.1rem;}
       .container { padding: 0.8rem;}
-      .sf-logo {height: 40px; width: 40px;}
+      .sf-logo {height: 38px; width: 38px;}
     }
     @media (max-width: 550px) {
-      .container {padding: 0.2rem;}
+      .container {padding: 0.13rem;}
       h1 { font-size: 1.06rem;}
-      .subtitle { font-size: 0.94rem;}
-      .intro { font-size: 0.98rem;}
+      .subtitle { font-size: 0.92rem;}
+      .intro { font-size: 0.96rem;}
       .faq h3 {font-size: 0.97rem;}
     }
   </style>
@@ -172,12 +217,28 @@
     <img src="1.jpg" alt="Solarfabrik Logo" class="sf-logo">
     <h1>Digitale Vertriebs- und Beratungslösungen<br>für die Solarfabrik GmbH</h1>
     <div class="subtitle">Proaktive Demo von <b>Tetyana Leyendecker</b></div>
-    <nav>
-      <a href="#demos">Demo-Tools</a>
-      <a href="#potentials">Potenziale</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
+    <div class="nav-container">
+      <div class="nav-menu">
+        <button tabindex="0" onclick="toggleDropdown('demos')">Demo-Tools ▼</button>
+        <div id="dropdown-demos" class="dropdown-content">
+          <a href="solarfabrik-preisrechner-demo.html" target="_blank">Preisrechner</a>
+          <a href="solarfabrik_price_demo.html" target="_blank">Transportkostenrechner</a>
+          <a href="solar_fabrik_module_comparison.html" target="_blank">Modulvergleich</a>
+        </div>
+        <button tabindex="0" onclick="toggleDropdown('potentials')">Potenziale ▼</button>
+        <div id="dropdown-potentials" class="dropdown-content">
+          <a href="#potentials">Alle Potenziale</a>
+        </div>
+        <button tabindex="0" onclick="toggleDropdown('faq')">FAQ ▼</button>
+        <div id="dropdown-faq" class="dropdown-content">
+          <a href="#faq">FAQ anzeigen</a>
+        </div>
+        <button tabindex="0" onclick="toggleDropdown('contact')">Kontakt ▼</button>
+        <div id="dropdown-contact" class="dropdown-content">
+          <a href="#contact">Kontakt</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <div class="container">
@@ -251,5 +312,25 @@
       <p>Ich freue mich auf Ihr Feedback und auf eine mögliche Zusammenarbeit!</p>
     </section>
   </div>
+  <script>
+    // Dropdown Menü-Logik
+    function toggleDropdown(name) {
+      // Alle Dropdowns schließen
+      ['demos','potentials','faq','contact'].forEach(id=>{
+        if(id!==name) document.getElementById('dropdown-'+id).style.display='none';
+      });
+      // Aktuelles Dropdown togglen
+      let dd = document.getElementById('dropdown-'+name);
+      dd.style.display = (dd.style.display==='block') ? 'none' : 'block';
+    }
+    // Klick außerhalb schließt Dropdown
+    document.addEventListener('click', function(event){
+      if(!event.target.closest('.nav-menu')) {
+        ['demos','potentials','faq','contact'].forEach(id=>{
+          document.getElementById('dropdown-'+id).style.display='none';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
