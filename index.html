@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solarfabrik Demo – Digitale Sales-Lösungen</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap">
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #004f2d;
+      color: #fff;
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+    }
+    nav {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: #004f2d;
+      background: #e8f5e9;
+      text-decoration: none;
+      margin: 0 0.7rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    nav a:hover {
+      background: #c0e2c9;
+    }
+    .container {
+      max-width: 980px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 18px;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.08);
+      margin-top: -2rem;
+      position: relative;
+      top: -45px;
+    }
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.3em;
+      letter-spacing: -1px;
+    }
+    .subtitle {
+      color: #2e7d4e;
+      font-size: 1.25rem;
+      margin-bottom: 1.5em;
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.6rem;
+      margin-bottom: 2.5rem;
+      margin-top: 1.5rem;
+    }
+    .demo-box {
+      background: #e8f5e9;
+      padding: 1.3rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      text-align: center;
+      transition: transform 0.15s;
+    }
+    .demo-box:hover {
+      transform: translateY(-4px) scale(1.03);
+      background: #d2ead5;
+    }
+    .demo-box h3 {
+      margin-bottom: 0.3em;
+      color: #004f2d;
+    }
+    .demo-box p {
+      font-size: 1.04rem;
+      margin-bottom: 0.8em;
+    }
+    .demo-box a {
+      background: #004f2d;
+      color: #fff;
+      padding: 0.4em 1em;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .potentials {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .potentials h2 {
+      color: #006e3c;
+      margin-bottom: 0.7em;
+    }
+    .potentials ul {
+      list-style: disc inside;
+      padding-left: 1em;
+      font-size: 1.1rem;
+    }
+    .faq {
+      background: #e6f3ec;
+      border-radius: 10px;
+      padding: 1.3rem;
+      margin-bottom: 2.5rem;
+    }
+    .faq h3 { color: #006e3c; }
+    .faq dt { font-weight: bold; margin-top: 1.1em; }
+    .faq dd { margin-bottom: 0.8em; margin-left: 0; }
+    .contact {
+      background: #d1e3dc;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: 1.07rem;
+    }
+    @media (max-width: 800px) {
+      .demo-grid { grid-template-columns: 1fr; gap: 1.4rem;}
+      .container { padding: 1rem;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://www.solar-fabrik.de/fileadmin/templates/images/SF_Logo.svg" alt="Solarfabrik Logo" style="height:52px;margin-bottom: 12px;">
+    <h1>Digitale Vertriebs- und Beratungslösungen<br>für die Solarfabrik GmbH</h1>
+    <div class="subtitle">Proaktive Demo von <b>[Dein Name]</b> – Effizienz, Kundenbindung und digitale Innovation aus einer Hand</div>
+    <nav>
+      <a href="#demos">Demo-Tools</a>
+      <a href="#potentials">Potenziale</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="demos">
+      <h2>Demo-Tools für Vertrieb & Beratung</h2>
+      <div class="demo-grid">
+        <div class="demo-box">
+          <h3>Preisrechner</h3>
+          <p>Kalkulieren Sie den Preis Ihres Wunschmoduls inkl. Transportkosten in Sekunden.</p>
+          <a href="solarfabrik-preisrechner-demo.html" target="_blank">Demo öffnen</a>
+        </div>
+        <div class="demo-box">
+          <h3>Transportkostenrechner</h3>
+          <p>Ermitteln Sie Transportkosten nach Produkt, Menge, Gewicht und PLZ.</p>
+          <a href="solarfabrik_price_demo.html" target="_blank">Demo öffnen</a>
+        </div>
+        <div class="demo-box">
+          <h3>Modulvergleich</h3>
+          <p>Vergleichen Sie die Leistungsdaten, Preise und Nachhaltigkeit verschiedener Module.</p>
+          <a href="solar_fabrik_module_comparison.html" target="_blank">Tabelle anzeigen</a>
+        </div>
+      </div>
+    </section>
+    
+    <section id="potentials" class="potentials">
+      <h2>Weitere Potenziale für Solarfabrik</h2>
+      <ul>
+        <li>**Digitale Lead-Generierung** (Kundenanfragen, Angebotsformulare, automatisiertes Follow-up)</li>
+        <li>**Automatisierter FAQ-Chatbot** für häufige Fragen (Produkt, Service, Finanzierung)</li>
+        <li>**Dynamische Modulberatung** (Best-Fit-Vorschlag je nach Bedarf)</li>
+        <li>**Kunden-Onboarding & After-Sales-Tools** (Doku, Serviceanfragen, Rückrufsystem)</li>
+        <li>**Sales- & Performance-Dashboards** für Vertriebscontrolling und Forecasting</li>
+        <li>**E-Mail-Automatisierung** für Angebote, Updates & Upselling</li>
+        <li>**Integrationen** (CRM, Newsletter, Kalender, Live-Chat)</li>
+        <li>**Mehrsprachige Beratung und Tools** für internationale Expansion</li>
+        <li>**Schnittstellen zu Webshop, Partner, Installateuren**</li>
+      </ul>
+    </section>
+    
+    <section id="faq" class="faq">
+      <h3>FAQ – Häufig gestellte Fragen</h3>
+      <dl>
+        <dt>Was sind die Vorteile der Digitalisierung für Vertrieb & Service?</dt>
+        <dd>Mehr Transparenz, höhere Geschwindigkeit, verbesserte Kundenerfahrung, geringerer Aufwand im Innendienst.</dd>
+        <dt>Welche Tools sind individuell anpassbar?</dt>
+        <dd>Alle Demos sind Prototypen und können für Solarfabrik-Workflows, Produktdaten, Corporate Design und Schnittstellen maßgeschneidert werden.</dd>
+        <dt>Können auch KI-Features oder Chatbots integriert werden?</dt>
+        <dd>Ja, z. B. für Beratung, FAQ, Kundenservice oder Lead-Qualifizierung – alles datenschutzkonform und skalierbar.</dd>
+        <dt>Welche Plattformen werden unterstützt?</dt>
+        <dd>Alle gängigen Webbrowser und Mobilgeräte. Auch Integration in bestehende Solarfabrik-Systeme möglich.</dd>
+        <dt>Wie kann ich mehr erfahren?</dt>
+        <dd>Nutzen Sie das Kontaktformular unten oder schreiben Sie mir direkt für eine unverbindliche Demo oder individuelle Beratung.</dd>
+      </dl>
+    </section>
+    
+    <section id="contact" class="contact">
+      <h3>Kontakt & Rückfragen</h3>
+      <p>
+        <strong>[Dein Name]</strong> <br>
+        E-Mail: <a href="mailto:deine.email@beispiel.de">deine.email@beispiel.de</a> <br>
+        LinkedIn: <a href="https://www.linkedin.com/in/deinprofil/" target="_blank">linkedin.com/in/deinprofil</a>
+      </p>
+      <p>Ich freue mich auf Ihr Feedback und auf eine mögliche Zusammenarbeit!</p>
+    </section>
+  </div>
+</body>
+</html>
