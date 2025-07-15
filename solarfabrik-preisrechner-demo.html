@@ -1,97 +1,256 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solarfabrik Preisrechner Demo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f4f8;
-            color: #333;
-            padding: 2rem;
-            max-width: 600px;
-            margin: auto;
-        }
-        h1 {
-            color: #006e3c;
-        }
-        label {
-            display: block;
-            margin-top: 1rem;
-            font-weight: bold;
-        }
-        select, input {
-            width: 100%;
-            padding: 0.5rem;
-            margin-top: 0.3rem;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-        button {
-            margin-top: 1.5rem;
-            background-color: #006e3c;
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .result {
-            margin-top: 2rem;
-            padding: 1rem;
-            background-color: #e6f3ec;
-            border-left: 5px solid #006e3c;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solarfabrik Preisrechner</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap">
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #004f2d;
+      color: #fff;
+      padding: 1rem 0 0.5rem 0;
+      text-align: center;
+      min-height: 80px;
+      position: relative;
+    }
+    .sf-logo {
+      height: 44px;
+      width: 44px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 5px;
+      margin-top: 2px;
+      background: none;
+      box-shadow: none;
+      display: inline-block;
+      border: none;
+      vertical-align: middle;
+    }
+    .nav-container {
+      width: 100%;
+      margin-top: 0.3rem;
+      text-align: center;
+      position: relative;
+    }
+    .nav-menu {
+      display: inline-block;
+      background: #e8f5e9;
+      border-radius: 7px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      padding: 0.12rem 1.2rem;
+      position: relative;
+    }
+    .nav-menu button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      color: #004f2d;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.6rem 1.4rem 0.6rem 0.8rem;
+      border-radius: 6px;
+      transition: background 0.15s;
+      position: relative;
+    }
+    .nav-menu button:hover, .nav-menu button.active {
+      background: #c0e2c9;
+      color: #002c1b;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 180px;
+      background: #fff;
+      border-radius: 9px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.11);
+      margin-top: 5px;
+      z-index: 1001;
+      text-align: left;
+      padding: 0.7rem 0;
+    }
+    .dropdown-content a {
+      color: #004f2d;
+      display: block;
+      padding: 0.5rem 1.3rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.12s;
+    }
+    .dropdown-content a:hover {
+      background: #e8f5e9;
+      color: #006e3c;
+    }
+    .nav-menu button:focus + .dropdown-content,
+    .nav-menu .dropdown-content:hover,
+    .nav-menu .dropdown-content:focus-within {
+      display: block;
+    }
+    .container {
+      max-width: 530px;
+      margin: auto;
+      background: #fff;
+      padding: 1.6rem 1.2rem 1.4rem 1.2rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.07);
+      margin-top: 1.15rem;
+      position: relative;
+      top: 0;
+    }
+    h1 {
+      color: #006e3c;
+      text-align: center;
+      margin-bottom: 0.4em;
+      margin-top: 0.1em;
+      font-size: 1.23rem;
+      font-weight: 700;
+    }
+    .intro {
+      text-align: center;
+      font-size: 1.01rem;
+      color: #295f48;
+      margin-bottom: 1.3em;
+      margin-top: -0.4em;
+    }
+    label {
+      display: block;
+      margin-top: 1.05rem;
+      font-weight: bold;
+    }
+    select, input {
+      width: 100%;
+      padding: 0.53rem;
+      margin-top: 0.3rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    button[type="submit"], .calc-btn {
+      margin-top: 1.35rem;
+      background-color: #006e3c;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.05rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: background 0.17s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button[type="submit"]:hover, .calc-btn:hover {
+      background-color: #004f2d;
+    }
+    .result {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #e6f3ec;
+      border-left: 5px solid #006e3c;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+      font-size: 1.01rem;
+    }
+    @media (max-width: 640px) {
+      .container {
+        padding: 0.8rem 0.3rem 1.1rem 0.3rem;
+        margin-top: 1rem;
+      }
+      .sf-logo {height: 38px; width: 38px;}
+      .nav-menu button {font-size: 0.96rem;}
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <img src="1.jpg" alt="Solarfabrik Logo" class="sf-logo">
+    <div class="nav-container">
+      <div class="nav-menu">
+        <button tabindex="0" onclick="toggleDropdown('demos')">Demo-Tools ▼</button>
+        <div id="dropdown-demos" class="dropdown-content">
+          <a href="solarfabrik-preisrechner-demo.html">Preisrechner</a>
+          <a href="solarfabrik_price_demo.html">Transportkostenrechner</a>
+          <a href="solar_fabrik_module_comparison.html">Modulvergleich</a>
+          <a href="index.html">Zur Startseite</a>
+        </div>
+        <button tabindex="0" onclick="toggleDropdown('faq')">FAQ ▼</button>
+        <div id="dropdown-faq" class="dropdown-content">
+          <a href="index.html#faq">FAQ anzeigen</a>
+        </div>
+        <button tabindex="0" onclick="toggleDropdown('contact')">Kontakt ▼</button>
+        <div id="dropdown-contact" class="dropdown-content">
+          <a href="index.html#contact">Kontakt</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
     <h1>Solarfabrik Preisrechner</h1>
-    <p>Demo-Tool zur schnellen Kalkulation – in wenigen Sekunden.</p>
-
+    <div class="intro">Demo-Tool zur schnellen Kalkulation – in wenigen Sekunden.</div>
     <label for="modultyp">Modultyp wählen:</label>
     <select id="modultyp">
-        <option value="370">SF Premium 370W</option>
-        <option value="410">SF Black 410W</option>
-        <option value="450">SF Top 450W</option>
+      <option value="370">SF Premium 370W</option>
+      <option value="410">SF Black 410W</option>
+      <option value="450">SF Top 450W</option>
     </select>
-
     <label for="menge">Menge eingeben (in Stück):</label>
     <input type="number" id="menge" min="1" value="10">
-
     <label for="plz">Postleitzahl:</label>
     <input type="text" id="plz" placeholder="z. B. 79111">
-
-    <button onclick="berechne()">Preis berechnen</button>
-
+    <button type="submit" class="calc-btn" onclick="berechne()">Preis berechnen</button>
     <div class="result" id="ergebnis" style="display: none;"></div>
-
-    <script>
-        function berechne() {
-            const modultyp = document.getElementById("modultyp").value;
-            const menge = parseInt(document.getElementById("menge").value);
-            const plz = document.getElementById("plz").value;
-
-            const gewichtProStk = 22; // kg
-            const transportKostenBasis = 95;
-            const preisProModul = parseInt(modultyp); // Preis nach Watt
-            const gesamtgewicht = gewichtProStk * menge;
-            const transportkosten = transportKostenBasis + (gesamtgewicht * 0.12);
-            const gesamtpreis = menge * (preisProModul * 0.75); // fiktiver €/Modul-Wert
-
-            const ausgabe = `
-                <strong>Ergebnis:</strong><br>
-                • Gesamtgewicht: ${gesamtgewicht} kg<br>
-                • Transportkosten (PLZ ${plz}): ca. ${transportkosten.toFixed(2)} €<br>
-                • Produktpreis (netto): ${gesamtpreis.toFixed(2)} €<br><br>
-                📦 <em>Unverbindliche Beispielkalkulation – individuell anpassbar.</em>
-            `;
-
-            const ergebnisBox = document.getElementById("ergebnis");
-            ergebnisBox.innerHTML = ausgabe;
-            ergebnisBox.style.display = "block";
-        }
-    </script>
+  </div>
+  <script>
+    // Dropdown Menü-Logik
+    function toggleDropdown(name) {
+      ['demos','faq','contact'].forEach(id=>{
+        if(id!==name) document.getElementById('dropdown-'+id).style.display='none';
+      });
+      let dd = document.getElementById('dropdown-'+name);
+      dd.style.display = (dd.style.display==='block') ? 'none' : 'block';
+    }
+    document.addEventListener('click', function(event){
+      if(!event.target.closest('.nav-menu')) {
+        ['demos','faq','contact'].forEach(id=>{
+          document.getElementById('dropdown-'+id).style.display='none';
+        });
+      }
+    });
+    // Kalkulation
+    function berechne() {
+      const modultyp = document.getElementById("modultyp").value;
+      const menge = parseInt(document.getElementById("menge").value);
+      const plz = document.getElementById("plz").value;
+      const gewichtProStk = 22; // kg
+      const transportKostenBasis = 95;
+      const preisProModul = parseInt(modultyp);
+      const gesamtgewicht = gewichtProStk * menge;
+      const transportkosten = transportKostenBasis + (gesamtgewicht * 0.12);
+      const gesamtpreis = menge * (preisProModul * 0.75); // fiktiver €/Modul-Wert
+      const ausgabe = `
+        <strong>Ergebnis:</strong><br>
+        • Gesamtgewicht: ${gesamtgewicht} kg<br>
+        • Transportkosten (PLZ ${plz}): ca. ${transportkosten.toFixed(2)} €<br>
+        • Produktpreis (netto): ${gesamtpreis.toFixed(2)} €<br><br>
+        📦 <em>Unverbindliche Beispielkalkulation – individuell anpassbar.</em>
+      `;
+      const ergebnisBox = document.getElementById("ergebnis");
+      ergebnisBox.innerHTML = ausgabe;
+      ergebnisBox.style.display = "block";
+    }
+  </script>
 </body>
 </html>
